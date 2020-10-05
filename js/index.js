@@ -78,7 +78,7 @@ function initSubscribeForm () {
     const xhr = new XMLHttpRequest();
     let endpoint = 'http://localhost:5000/mail/subscribe';
     if (process.env.NODE_ENV === 'production') {
-      endpoint = 'https://api.learncoupling.com/mail/subscribe';
+      endpoint = 'http://api.learncoupling.com:5000/mail/subscribe';
     }
     xhr.open('POST', endpoint);
 
