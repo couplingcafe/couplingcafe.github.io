@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initABTest () {
   if (document.body.dataset.type !== 'home') { return; }
 
+  console.log("WHAT");
   if (Math.random() >= 0.5 || localStorage.getItem('abTestTitle1')) {
     localStorage.setItem('abTestTitle1', 1);
     amp().setUserProperties({'abTestTitle1': true});
@@ -20,6 +21,8 @@ function initABTest () {
 }
 
 function initAnalytics () {
+  if (window.location.host.startsWith('localhost')) { return; }
+
   amp().logEvent('Page View', {
     page: document.body.dataset.type || document.title
   });
@@ -156,6 +159,5 @@ function click (q, fn) {
 }
 
 function amp () { return amplitude.getInstance(); }
-
 function $ (q) { return document.querySelector(q); }
 function $$ (q) { return document.querySelectorAll(q); }
