@@ -130,8 +130,12 @@ function initSubscribeForm () {
       xhr.addEventListener('load', () => {
         if (button) {
           button.disabled = true;
-          button.innerHTML = 'You are subscribed!';
+          button.innerHTML = 'Subscribed!';
         }
+      });
+
+      xhr.addEventListener('error', () => {
+        window.location.href = 'http://eepurl.com/hfV9gr';
       });
 
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
